@@ -61,8 +61,14 @@
 - Registers listeners via subscribe(listener)
 - Handles unregistering of listeners via the function returned by subscriber(listener)
 
-## Middleware
+## Middleware:
 
 - Is the suggested way to extend Redux with custom functionality
 - Provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.
 - Use middleware for logging, crash reporting, performing asynchronous tasks e.t.c.
+
+## Notable Packages:
+
+1) axios -> Requests to an API end point.
+
+2) redux-thunk -> Define async action creators.
