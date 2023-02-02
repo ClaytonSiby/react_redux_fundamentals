@@ -47,7 +47,7 @@
     Reducer - (previousState, action) => newState.
   ```
 
-### Redux Archictural Pattern:
+### Redux Architectural Pattern:
 
 ![TheGentleman](./assets/images/project_screenshot.png)
 
