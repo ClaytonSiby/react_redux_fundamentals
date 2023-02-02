@@ -1,4 +1,4 @@
-# React-Redux Fundamentas
+# React-Redux Fundamentals
 
 - Redux is a predictable state container for JS apps.
 
