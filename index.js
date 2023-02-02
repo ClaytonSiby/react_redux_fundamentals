@@ -1,6 +1,8 @@
-const redux = require('redux');
+const redux = require("redux");
+const combineReducers = redux.combineReducers;
 const createStore = redux.createStore;
 const BUY_CAKE = "BUY_CAKE";
+const BUY_ICECREAM = "BUY_ICECREAM";
 
 // action creator - a function that returns an action
 const buyCake = () => ({
@@ -8,28 +10,84 @@ const buyCake = () => ({
   info: "First Redux action",
 });
 
+const buyIceCream = () => ({
+  type: BUY_ICECREAM,
+});
+
 // initial state.
-const initialState = {
-  numberOfCakes: 10,
-};
+// const initialState = {
+//   numberOfCakes: 10,
+//   numberOfIceCreams: 20,
+// };
+
+const initialCakeState = {
+  numberOfCakes: 10
+}
+
+const initialIceCreamState = {
+  numberOfIceCreams: 20
+}
 
 // reducer  a function that accepts state and action as arguments and returns the next state of the application
-const reducer = (state = initialState, action) => {
+// const reducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case BUY_CAKE:
+//       return {
+//         ...state, // only update the property that needs to be updated.
+//         numberOfCakes: state.numberOfCakes - 1,
+//       };
+
+//     case BUY_ICECREAM:
+//       return {
+//         ...state, // only update the property that needs to be updated.
+//         numberOfIceCreams: state.numberOfIceCreams - 1,
+//       };
+
+//     default:
+//       return state;
+//   }
+// };
+
+const cakeReducer = (state = initialCakeState, action) => {
   switch (action.type) {
     case BUY_CAKE:
       return {
-				...state, // only update the property that needs to be updated.
+        ...state, // only update the property that needs to be updated.
         numberOfCakes: state.numberOfCakes - 1,
       };
 
-		default: return state;
+    default:
+      return state;
   }
 };
 
-const store = createStore(reducer);
+const iceCreamReducer = (state = initialIceCreamState, action) => {
+  switch (action.type) {
+    case BUY_CAKE:
+      return {
+        ...state, // only update the property that needs to be updated.
+        numberOfCakes: state.numberOfIceCreams - 1,
+      };
+
+    default:
+      return state;
+  }
+};
+
+const rootReducer = combineReducers({
+  cake: cakeReducer,
+  iceCream: iceCreamReducer
+});
+
+const store = createStore(rootReducer);
 console.log("Initial state", store.getState());
-const unsubscribe = store.subscribe(() => console.log("Updated state", store.getState()));
+const unsubscribe = store.subscribe(() =>
+  console.log("Updated state", store.getState())
+);
+
 store.dispatch(buyCake());
 store.dispatch(buyCake());
 store.dispatch(buyCake());
+store.dispatch(buyIceCream());
+store.dispatch(buyIceCream());
 unsubscribe();
