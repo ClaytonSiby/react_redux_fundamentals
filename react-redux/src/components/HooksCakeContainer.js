@@ -4,7 +4,7 @@ import { buyCake } from '../redux';
 
 function HooksCakeContainer() {
   // access the app store with useSelector
-  const numberOfCakes = useSelector((state) => state.numberOfCakes);
+  const numberOfCakes = useSelector((state) => state.cake.numberOfCakes);
 
   // useDispatch hook returns a reference to the dispatch function from the redux store
   const dispatch = useDispatch();
