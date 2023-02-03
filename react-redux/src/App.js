@@ -3,6 +3,7 @@ import store from './redux/store';
 import CakeContainer from './components/CakeContainer';
 import IceCreamContainer from './components/IceCreamContainer';
 import HooksCakeContainer from './components/HooksCakeContainer';
+import NewCakeContainer from './components/NewCakeContainer';
 import './App.css';
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
         <HooksCakeContainer />
         <h3>+++++++++++++++ IceCreams ++++++++++++++++++++</h3>
         <IceCreamContainer />
+        <h3>=============== Action Payload ===============</h3>
+        <NewCakeContainer />
       </div>
     </Provider>
   );
